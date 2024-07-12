@@ -19,7 +19,8 @@ The front-end of a Spring Boot web application can be approached in different wa
 
 Chosen option: Thymeleaf. Thymeleaf is simple and has excellent Spring integration. It's only capable of server-side
 rendering and might present challenges in creating rich experiences; which a JavaScript front-end library like React
-could easily achieve.
+could easily achieve. Thymeleaf layout dialect also improves overall template organization and template reusability by
+defining dedicated layout templates.
 
 Using React with Spring immediately warrants a Node.js and NPM package setup to start developing with it. It also means
 a separate JavaScript/TypeScript codebase needs to be maintained. React also expects a REST API from the Spring back-end
