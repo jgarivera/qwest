@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: qwest
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/qwest
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  thymeleaf:
+    cache: false
