@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-theme="light"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/webjars/bulma/css/bulma.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.min.css}"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/jdenticon@3.3.0/dist/jdenticon.min.js" async
+            integrity="sha384-LfouGM03m83ArVtne1JPk926e3SGD0Tz8XHtW2OKGsgeBU/UfR0Fa8eX+UlwSSAZ" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+<section class="section">
+    <div class="container">
+        <nav th:replace="~{fragments/navigation :: navigation}"></nav>
+
+        <!-- Content -->
+        <section class="section" layout:fragment="~{app-content}"></section>
+    </div>
+</section>
+</body>
+
+</html>

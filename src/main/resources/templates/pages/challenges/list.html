@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <title>Challenges</title>
+</head>
+
+<body>
+<section layout:fragment="~{app-content}">
+    <h1 class="title">Challenges</h1>
+    <h2 class="subtitle">
+        Available challenges to participate in
+    </h2>
+
+    <div class="grid is-col-min-12">
+        <div class="cell" th:each="challenge : ${challenges}">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title is-5" th:text="${challenge.name}"></p>
+                    <p class="subtitle is-5" th:text="${challenge.description}"></p>
+                </div>
+
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item">View</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

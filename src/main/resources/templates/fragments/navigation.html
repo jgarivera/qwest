@@ -1,0 +1,46 @@
+<nav xmlns:th="http://www.thymeleaf.org" th:fragment="navigation" class="navbar" role="navigation"
+     aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" th:href="@{/}">
+            <h1 class="title">
+                qwest
+            </h1>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+           data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" th:href="@{/challenges}">
+                Challenges
+            </a>
+            <a class="navbar-item" th:href="@{/challenge-details}">
+                Badges
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary">
+                        Register
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <svg data-jdenticon-value="exampleUserName" width="40" height="40">
+            Inline SVG is not supported in your browser
+        </svg>
+    </div>
+</nav>

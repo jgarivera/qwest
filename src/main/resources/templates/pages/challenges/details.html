@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <title>Challenge Details</title>
+</head>
+
+<body>
+<section layout:fragment="~{app-content}">
+    <h1 class="title">Initiation</h1>
+    <h2 class="subtitle">
+        Your journey begins now, traveller...
+    </h2>
+
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <div class="content">
+                    This is a challenge description. It shows how to complete the challenge. It provides context
+                    and other fun clues!
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="block">
+                <div class="icon-text">
+                    <span class="icon has-text-info">
+                        <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span>Information</span>
+                </div>
+                <p class="block">
+                    101 participants have completed this challenge.
+                </p>
+            </div>
+
+            <div class="block">
+                <button class="button is-primary">Join Challenge</button>
+                <button class="button">
+                            <span class="icon is-small">
+                                <i class="far fa-bookmark"></i>
+                            </span>
+                    <span>Bookmark</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Badge -->
+        <div class="column">
+            <h2 class="subtitle">Completing this challenge unlocks this badge:</h2>
+            <div class="columns is-centered">
+                <figure class="image is-square is-128x128">
+                    <img th:src="@{/badge.png}">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
