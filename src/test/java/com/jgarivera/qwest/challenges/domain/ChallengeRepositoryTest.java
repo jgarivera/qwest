@@ -22,10 +22,10 @@ class ChallengeRepositoryTest {
         var challenge = new Challenge(1L, "Challenge name", "Challenge description");
         repository.save(challenge);
 
-        Challenge savedUser = repository.findById(1L).orElseThrow();
+        Challenge savedChallenge = repository.findById(1L).orElseThrow();
 
-        assertThat(savedUser).isNotNull();
-        assertThat(savedUser.getName()).isEqualTo("Challenge name");
-        assertThat(savedUser.getDescription()).isEqualTo("Challenge description");
+        assertThat(savedChallenge).isNotNull();
+        assertThat(savedChallenge.getName()).isEqualTo("Challenge name");
+        assertThat(savedChallenge.getDescription()).isEqualTo("Challenge description");
     }
 }
