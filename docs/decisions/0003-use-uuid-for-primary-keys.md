@@ -2,7 +2,7 @@
 
 ## Context and Problem Statement
 
-There are two ways to create a primary key in tables.
+There are two common ways to create a primary key in tables. Both have their own trade-offs.
 
 ## Decision Drivers
 
