@@ -1,5 +1,6 @@
 package com.jgarivera.qwest.challenges.domain;
 
+import com.jgarivera.qwest.shared.BaseEntity;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -7,7 +8,7 @@ import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "challenges")
-public class Challenge {
+public class Challenge extends BaseEntity<ChallengeId> {
 
     @EmbeddedId
     private ChallengeId id;
