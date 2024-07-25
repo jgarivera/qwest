@@ -1,6 +1,7 @@
 package com.jgarivera.qwest.challenges.domain;
 
 import com.jgarivera.qwest.TestDatabaseConfiguration;
+import com.jgarivera.qwest.shared.UUIDFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -17,11 +18,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ChallengeRepositoryTest {
 
     @Autowired
+    UUIDFactory uuidFactory;
+    @Autowired
     ChallengeRepository repository;
 
     @Test
     void it_creates_challenge() {
-        var id = new ChallengeId(UUID.randomUUID());
+        var id = new ChallengeId(uuidFactory.create());
         var challenge = new Challenge(id, "Challenge name", "Challenge description");
         repository.save(challenge);
 
