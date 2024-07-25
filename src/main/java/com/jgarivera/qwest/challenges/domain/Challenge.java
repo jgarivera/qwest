@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.challenges.domain;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -9,12 +9,12 @@ import org.springframework.util.Assert;
 @Table(name = "challenges")
 public class Challenge {
 
-    @Id
-    private Long id;
+    @EmbeddedId
+    private ChallengeId id;
     private String name;
     private String description;
 
-    public Challenge(Long id, String name) {
+    public Challenge(ChallengeId id, String name) {
         Assert.notNull(id, "id must not be null");
         Assert.notNull(name, "name must not be null");
 
@@ -22,16 +22,18 @@ public class Challenge {
         this.name = name;
     }
 
-    public Challenge(Long id, String name, String description) {
+    public Challenge(ChallengeId id, String name, String description) {
         this(id, name);
         this.description = description;
     }
 
+    /**
+     * As required by JPA.
+     */
     protected Challenge() {
-        /* as required by JPA */
     }
 
-    public Long getId() {
+    public ChallengeId getId() {
         return id;
     }
 

@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
+import java.util.UUID;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -19,10 +21,11 @@ class ChallengeRepositoryTest {
 
     @Test
     void it_creates_challenge() {
-        var challenge = new Challenge(1L, "Challenge name", "Challenge description");
+        var id = new ChallengeId(UUID.randomUUID());
+        var challenge = new Challenge(id, "Challenge name", "Challenge description");
         repository.save(challenge);
 
-        Challenge savedChallenge = repository.findById(1L).orElseThrow();
+        Challenge savedChallenge = repository.findById(id).orElseThrow();
 
         assertThat(savedChallenge).isNotNull();
         assertThat(savedChallenge.getName()).isEqualTo("Challenge name");
