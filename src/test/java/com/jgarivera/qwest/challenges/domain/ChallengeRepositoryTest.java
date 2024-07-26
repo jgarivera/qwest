@@ -1,6 +1,7 @@
 package com.jgarivera.qwest.challenges.domain;
 
 import com.jgarivera.qwest.TestDatabaseConfiguration;
+import com.jgarivera.qwest.TestUUIDFactoryConfiguration;
 import com.jgarivera.qwest.shared.UUIDFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import(TestDatabaseConfiguration.class)
+@Import({TestDatabaseConfiguration.class, TestUUIDFactoryConfiguration.class})
 class ChallengeRepositoryTest {
 
     @Autowired
