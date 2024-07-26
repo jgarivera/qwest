@@ -12,7 +12,7 @@ class ChallengeIdTest {
 
     @Test
     void it_creates_challenge_id() {
-        var id = UUID.randomUUID();
+        var id = UUID.fromString("00000000-0000-0000-0000-000000000000");
         assertThat(new ChallengeId(id).id()).isEqualTo(id);
     }
 
