@@ -15,11 +15,6 @@ class PageController {
         this.repository = repository;
     }
 
-    @GetMapping
-    private String index() {
-        return "pages/index";
-    }
-
     @GetMapping("challenges")
     private String challenges(Model model) {
         Iterable<Challenge> challenges = repository.findAll();
