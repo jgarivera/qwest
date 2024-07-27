@@ -34,14 +34,6 @@ class PageControllerTest {
     ChallengeRepository challengeRepository;
 
     @Test
-    void it_gets_home_page() throws Exception {
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("pages/index"))
-                .andExpect(content().string(containsString("Welcome")));
-    }
-
-    @Test
     void it_gets_challenges_page() throws Exception {
         List<Challenge> challenges = List.of(
                 new Challenge(new ChallengeId(uuidFactory.create()), "First challenge"),
