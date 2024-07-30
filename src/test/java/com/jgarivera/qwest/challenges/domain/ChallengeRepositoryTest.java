@@ -24,13 +24,13 @@ class ChallengeRepositoryTest {
     @Test
     void it_creates_challenge() {
         var id = new ChallengeId(uuidFactory.create());
-        var challenge = new Challenge(id, "Challenge name", "Challenge description");
+        var challenge = new Challenge(id, "Challenge title", "Challenge description");
         repository.save(challenge);
 
         Challenge savedChallenge = repository.findById(id).orElseThrow();
 
         assertThat(savedChallenge).isNotNull();
-        assertThat(savedChallenge.getName()).isEqualTo("Challenge name");
+        assertThat(savedChallenge.getTitle()).isEqualTo("Challenge title");
         assertThat(savedChallenge.getDescription()).isEqualTo("Challenge description");
     }
 }

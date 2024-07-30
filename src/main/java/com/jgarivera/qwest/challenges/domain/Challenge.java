@@ -12,19 +12,19 @@ public class Challenge extends BaseEntity<ChallengeId> {
 
     @EmbeddedId
     private ChallengeId id;
-    private String name;
+    private String title;
     private String description;
 
-    public Challenge(ChallengeId id, String name) {
+    public Challenge(ChallengeId id, String title) {
         Assert.notNull(id, "id must not be null");
-        Assert.notNull(name, "name must not be null");
+        Assert.notNull(title, "title must not be null");
 
         this.id = id;
-        this.name = name;
+        this.title = title;
     }
 
-    public Challenge(ChallengeId id, String name, String description) {
-        this(id, name);
+    public Challenge(ChallengeId id, String title, String description) {
+        this(id, title);
         this.description = description;
     }
 
@@ -38,12 +38,12 @@ public class Challenge extends BaseEntity<ChallengeId> {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -78,6 +78,6 @@ public class Challenge extends BaseEntity<ChallengeId> {
 
     @Override
     public String toString() {
-        return String.format("Challenge[id=%s, name=%s, description=%s]", id.toString(), name, description);
+        return String.format("Challenge[id=%s, title=%s, description=%s]", id.toString(), title, description);
     }
 }
