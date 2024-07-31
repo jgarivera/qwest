@@ -21,14 +21,12 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Set up Python 3.14
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: '3.12.4'
           cache: 'pip'
-
-      - name: Install sqlfluff
-        run: pip install sqlfluff
+      - run: pip install -r requirements.txt
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3.5.0
