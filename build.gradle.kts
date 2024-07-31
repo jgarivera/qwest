@@ -1,3 +1,5 @@
+import org.gradle.api.internal.BuildDefinition
+
 plugins {
     java
     checkstyle
@@ -45,4 +47,18 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.register("lintMigrations") {
+    description = "Lints migration SQL files."
+
+    doFirst {
+        exec {
+            commandLine("sqlfluff", "lint", "--dialect", "ansi", "src/main/resources/db/migration")
+        }
+    }
+}
+
+tasks.check {
+    dependsOn("lintMigrations")
 }
