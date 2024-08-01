@@ -52,7 +52,7 @@ tasks.register("lintMigrations") {
 
     doFirst {
         exec {
-            commandLine("sqlfluff", "lint", "--dialect", "ansi", "src/main/resources/db/migration")
+            commandLine("sqlfluff", "lint", "src/main/resources/db/migration")
         }
     }
 }
