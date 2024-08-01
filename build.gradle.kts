@@ -47,6 +47,10 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+checkstyle {
+    configFile = file("checkstyle.xml")
+}
+
 tasks.register("lintMigrations") {
     description = "Lints migration SQL files."
 
