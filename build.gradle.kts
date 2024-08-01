@@ -1,5 +1,3 @@
-import org.gradle.api.internal.BuildDefinition
-
 plugins {
     java
     checkstyle
