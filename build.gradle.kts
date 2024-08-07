@@ -31,9 +31,11 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("com.github.f4b6a3:uuid-creator:6.0.0")
     runtimeOnly("org.postgresql:postgresql")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
