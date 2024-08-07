@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -34,6 +35,7 @@ class PageControllerTest {
     ChallengeRepository challengeRepository;
 
     @Test
+    @WithMockUser
     void it_gets_challenges_page() throws Exception {
         List<Challenge> challenges = List.of(
                 new Challenge(new ChallengeId(uuidFactory.create()), "First challenge"),
