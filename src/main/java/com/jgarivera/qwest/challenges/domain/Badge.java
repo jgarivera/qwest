@@ -18,7 +18,7 @@ public class Badge extends BaseEntity<BadgeId> {
 
     public Badge(BadgeId id, String title, String description, String imageUrl) {
         Assert.notNull(id, "id must not be null");
-        Assert.notNull(title, "title must not be null");
+        Assert.hasText(title, "title must not be null");
 
         this.id = id;
         this.title = title;
