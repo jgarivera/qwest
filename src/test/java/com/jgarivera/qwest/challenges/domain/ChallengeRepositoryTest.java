@@ -34,7 +34,7 @@ class ChallengeRepositoryTest {
 
         Challenge savedChallenge = repository.findById(id).orElseThrow();
 
-        assertThat(savedChallenge).isNotNull();
+        assertThat(savedChallenge).isEqualTo(challenge);
         assertThat(savedChallenge.getTitle()).isEqualTo("Challenge title");
         assertThat(savedChallenge.getDescription()).isEqualTo("Challenge description");
     }
