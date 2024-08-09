@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,13 +20,17 @@ class BadgeRepositoryTest {
     @Autowired
     UUIDFactory uuidFactory;
     @Autowired
+    TestEntityManager entityManager;
+    @Autowired
     BadgeRepository repository;
 
     @Test
     void it_creates_badge() {
         var id = new BadgeId(uuidFactory.create());
         var badge = new Badge(id, "Badge title", "Badge description", "https://example.com/image.jpg");
+
         repository.save(badge);
+        entityManager.flush();
 
         Badge savedBadge = repository.findById(id).orElseThrow();
 
