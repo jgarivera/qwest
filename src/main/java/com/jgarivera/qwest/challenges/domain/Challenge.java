@@ -1,7 +1,6 @@
 package com.jgarivera.qwest.challenges.domain;
 
 import com.jgarivera.qwest.shared.BaseEntity;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.springframework.util.Assert;
@@ -10,23 +9,8 @@ import org.springframework.util.Assert;
 @Table(name = "challenges")
 public class Challenge extends BaseEntity<ChallengeId> {
 
-    @EmbeddedId
-    private ChallengeId id;
     private String title;
     private String description;
-
-    public Challenge(ChallengeId id, String title) {
-        Assert.notNull(id, "id must not be null");
-        Assert.hasText(title, "title must not be null");
-
-        this.id = id;
-        this.title = title;
-    }
-
-    public Challenge(ChallengeId id, String title, String description) {
-        this(id, title);
-        this.description = description;
-    }
 
     /**
      * As required by JPA.
@@ -34,8 +18,16 @@ public class Challenge extends BaseEntity<ChallengeId> {
     protected Challenge() {
     }
 
-    public ChallengeId getId() {
-        return id;
+    public Challenge(ChallengeId id, String title) {
+        super(id);
+        Assert.hasText(title, "title must not be null");
+
+        this.title = title;
+    }
+
+    public Challenge(ChallengeId id, String title, String description) {
+        this(id, title);
+        this.description = description;
     }
 
     public String getTitle() {
@@ -52,28 +44,6 @@ public class Challenge extends BaseEntity<ChallengeId> {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (!(o instanceof Challenge other)) {
-            return false;
-        }
-
-        if (id == null) {
-            return false;
-        }
-
-        return id.equals(other.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : super.hashCode();
     }
 
     @Override
