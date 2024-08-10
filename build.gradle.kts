@@ -3,6 +3,7 @@ plugins {
     checkstyle
     id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.5"
+    id("org.flywaydb.flyway") version "10.10.0"
 }
 
 group = "com.jgarivera"
@@ -45,12 +46,25 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
+buildscript {
+    dependencies {
+        classpath("org.flywaydb:flyway-database-postgresql:10.10.0")
+    }
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }
 
 checkstyle {
     configFile = file("checkstyle.xml")
+}
+
+flyway {
+    url = "jdbc:postgresql://localhost:5432/qwest"
+    user = "user"
+    password = "password"
+    cleanDisabled = false
 }
 
 tasks.register("lintMigrations") {
