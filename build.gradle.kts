@@ -1,6 +1,7 @@
 plugins {
     java
     checkstyle
+    jacoco
     id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.5"
     id("org.flywaydb.flyway") version "10.10.0"
@@ -54,6 +55,13 @@ buildscript {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
 }
 
 checkstyle {
