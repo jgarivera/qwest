@@ -1,2 +1,5 @@
 [sqlfluff]
 dialect = ansi
+
+[sqlfluff:rules:references.keywords]
+ignore_words = password
