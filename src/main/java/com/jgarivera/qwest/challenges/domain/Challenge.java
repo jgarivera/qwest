@@ -20,7 +20,8 @@ public class Challenge extends BaseEntity<ChallengeId> {
 
     public Challenge(ChallengeId id, String title) {
         super(id);
-        Assert.hasText(title, "title must not be null");
+
+        Assert.hasText(title, "title must have text");
 
         this.title = title;
     }

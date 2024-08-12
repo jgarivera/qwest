@@ -22,7 +22,7 @@ public class Badge extends BaseEntity<BadgeId> {
     public Badge(BadgeId id, String title, String description, String imageUrl) {
         super(id);
 
-        Assert.hasText(title, "title must not be null");
+        Assert.hasText(title, "title must have text");
 
         this.title = title;
         this.description = description;
