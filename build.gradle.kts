@@ -34,6 +34,7 @@ dependencies {
     implementation("com.github.f4b6a3:uuid-creator:6.0.0")
     runtimeOnly("org.postgresql:postgresql")
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
