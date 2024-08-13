@@ -15,7 +15,7 @@ class PageController {
         this.repository = repository;
     }
 
-    @GetMapping("challenges")
+    @GetMapping("/challenges")
     private String challenges(Model model) {
         Iterable<Challenge> challenges = repository.findAll();
 
@@ -24,7 +24,7 @@ class PageController {
         return "pages/challenges/list";
     }
 
-    @GetMapping("challenge-details")
+    @GetMapping("/challenge-details")
     private String challengeDetails(Model model) {
         return "pages/challenges/details";
     }
