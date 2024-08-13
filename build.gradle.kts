@@ -28,6 +28,7 @@ dependencies {
     implementation("org.webjars:webjars-locator-core")
     implementation("org.webjars.npm:bulma:1.0.1")
     implementation("org.webjars:font-awesome:6.5.2")
+    implementation("org.webjars.npm:htmx.org:2.0.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
