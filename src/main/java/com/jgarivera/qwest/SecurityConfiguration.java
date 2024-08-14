@@ -24,6 +24,7 @@ class SecurityConfiguration {
 
         http.formLogin(
                 c -> c.loginPage("/login")
+                        .failureUrl("/login?error")
         );
 
         http.logout(c -> c.logoutSuccessUrl("/"));
