@@ -92,7 +92,7 @@ class PageControllerTest {
                         .param("password", form.getPassword())
                 )
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/login"));
+                .andExpect(redirectedUrl("/login?registered"));
 
         verify(userRepository, times(1)).save(any(User.class));
     }
