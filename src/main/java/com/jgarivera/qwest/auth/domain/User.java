@@ -26,6 +26,12 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     @Transient
     private List<GrantedAuthority> authorities;
 
+    /**
+     * As required by JPA.
+     */
+    protected User() {
+    }
+
     public User(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
         super(id);
 
