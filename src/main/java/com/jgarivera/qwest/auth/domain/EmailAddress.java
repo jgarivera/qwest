@@ -18,14 +18,14 @@ public record EmailAddress(String value) {
     private static final Pattern VALID_EMAIL_ADDRESS = Pattern.compile(VALID_EMAIL_ADDRESS_REGEX);
 
     public EmailAddress {
+        Assert.hasText(value, "value must have text");
+
         if (!isValid(value)) {
             throw new IllegalArgumentException("Invalid email address");
         }
     }
 
     public static boolean isValid(String value) {
-        Assert.hasText(value, "value must have text");
-
         Matcher matcher = VALID_EMAIL_ADDRESS.matcher(value);
         return matcher.matches();
     }

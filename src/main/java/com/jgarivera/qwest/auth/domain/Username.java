@@ -17,14 +17,14 @@ public record Username(String value) {
     private static final Pattern VALID_USERNAME = Pattern.compile(VALID_USERNAME_REGEX);
 
     public Username {
+        Assert.hasText(value, "value must have text");
+
         if (!isValid(value)) {
             throw new IllegalArgumentException("Invalid username");
         }
     }
 
     public static boolean isValid(String value) {
-        Assert.hasText(value, "value must have text");
-
         Matcher matcher = VALID_USERNAME.matcher(value);
         return matcher.matches();
     }
