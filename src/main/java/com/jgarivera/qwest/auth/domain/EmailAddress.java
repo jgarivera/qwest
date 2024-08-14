@@ -12,9 +12,10 @@ public record EmailAddress(String value) {
      *
      * @see <a href="https://owasp.org/www-community/OWASP_Validation_Regex_Repository">OWASP Validation Regex Repository</a>
      */
-    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
-            "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
-    );
+    public static final String VALID_EMAIL_ADDRESS_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*"
+            + "@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+    private static final Pattern VALID_EMAIL_ADDRESS = Pattern.compile(VALID_EMAIL_ADDRESS_REGEX);
 
     public EmailAddress {
         if (!isValid(value)) {
@@ -25,7 +26,7 @@ public record EmailAddress(String value) {
     public static boolean isValid(String value) {
         Assert.hasText(value, "value must have text");
 
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(value);
+        Matcher matcher = VALID_EMAIL_ADDRESS.matcher(value);
         return matcher.matches();
     }
 }

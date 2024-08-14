@@ -12,7 +12,9 @@ public record Username(String value) {
      * Allowed characters are letters, numbers, and underscores.
      * Length must be 8 to 30 characters inclusive.
      */
-    private static final Pattern VALID_USERNAME_REGEX = Pattern.compile("^[A-Za-z][A-Za-z0-9_]{7,29}$");
+    public static final String VALID_USERNAME_REGEX = "^[A-Za-z][A-Za-z0-9_]{7,29}$";
+
+    private static final Pattern VALID_USERNAME = Pattern.compile(VALID_USERNAME_REGEX);
 
     public Username {
         if (!isValid(value)) {
@@ -23,7 +25,7 @@ public record Username(String value) {
     public static boolean isValid(String value) {
         Assert.hasText(value, "value must have text");
 
-        Matcher matcher = VALID_USERNAME_REGEX.matcher(value);
+        Matcher matcher = VALID_USERNAME.matcher(value);
         return matcher.matches();
     }
 }
