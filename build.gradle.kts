@@ -36,6 +36,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
