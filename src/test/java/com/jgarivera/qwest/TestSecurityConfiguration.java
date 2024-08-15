@@ -1,10 +1,10 @@
 package com.jgarivera.qwest;
 
-import com.jgarivera.qwest.auth.domain.EmailAddress;
-import com.jgarivera.qwest.auth.domain.PersonalName;
-import com.jgarivera.qwest.auth.domain.User;
-import com.jgarivera.qwest.auth.domain.UserId;
-import com.jgarivera.qwest.auth.domain.Username;
+import com.jgarivera.qwest.identity.domain.EmailAddress;
+import com.jgarivera.qwest.identity.domain.PersonalName;
+import com.jgarivera.qwest.identity.domain.User;
+import com.jgarivera.qwest.identity.domain.UserId;
+import com.jgarivera.qwest.identity.domain.Username;
 import com.jgarivera.qwest.shared.UUIDFactory;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
 package com.jgarivera.qwest;
 
-import com.jgarivera.qwest.auth.infrastructure.AvatarSettings;
+import com.jgarivera.qwest.identity.infrastructure.AvatarSettings;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
