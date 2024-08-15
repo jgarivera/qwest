@@ -17,6 +17,13 @@ services:
       PGADMIN_DEFAULT_PASSWORD: password
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+  dicebear:
+    image: dicebear/api:2.7.1
+    ports:
+      - "3000:3000"
+    tmpfs:
+      - "/run"
+      - "/tmp"
 
 volumes:
   postgres-data:
