@@ -1,6 +1,7 @@
 # qwest
 
 ![example workflow](https://github.com/jgarivera/qwest/actions/workflows/gradle.yml/badge.svg)
+[![codecov](https://codecov.io/github/jgarivera/qwest/graph/badge.svg?token=8JB7ATU1PC)](https://codecov.io/github/jgarivera/qwest)
 
 A web application where hosts manage challenges for participants to join and earn badges.
 
