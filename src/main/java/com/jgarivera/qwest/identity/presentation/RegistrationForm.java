@@ -5,7 +5,6 @@ import com.jgarivera.qwest.identity.domain.PersonalName;
 import com.jgarivera.qwest.identity.domain.User;
 import com.jgarivera.qwest.identity.domain.UserId;
 import com.jgarivera.qwest.identity.domain.Username;
-import com.jgarivera.qwest.shared.UUIDFactory;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,9 +34,9 @@ class RegistrationForm {
     @NotBlank(message = "Password must not be blank")
     private String password;
 
-    public User toUser(UUIDFactory uuidFactory, PasswordEncoder passwordEncoder) {
+    public User toUser(UserId id, PasswordEncoder passwordEncoder) {
         return new User(
-                new UserId(uuidFactory.create()),
+                id,
                 new PersonalName(firstName, middleName, lastName),
                 new EmailAddress(email),
                 new Username(username),

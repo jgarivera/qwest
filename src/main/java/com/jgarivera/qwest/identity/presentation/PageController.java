@@ -1,8 +1,8 @@
 package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.identity.domain.User;
+import com.jgarivera.qwest.identity.domain.UserId;
 import com.jgarivera.qwest.identity.domain.UserRepository;
-import com.jgarivera.qwest.shared.UUIDFactory;
 import jakarta.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 class PageController {
 
     private final UserRepository repository;
-    private final UUIDFactory uuidFactory;
     private final PasswordEncoder passwordEncoder;
 
-    PageController(UserRepository repository, UUIDFactory uuidFactory, PasswordEncoder passwordEncoder) {
+    PageController(UserRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
-        this.uuidFactory = uuidFactory;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -40,7 +38,9 @@ class PageController {
             return "pages/register";
         }
 
-        User user = form.toUser(uuidFactory, passwordEncoder);
+        UserId id = repository.nextId();
+        User user = form.toUser(id, passwordEncoder);
+
         repository.save(user);
 
         return "redirect:/login?registered";

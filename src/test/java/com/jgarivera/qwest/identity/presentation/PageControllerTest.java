@@ -3,6 +3,7 @@ package com.jgarivera.qwest.identity.presentation;
 import com.jgarivera.qwest.TestSecurityConfiguration;
 import com.jgarivera.qwest.identity.domain.User;
 import com.jgarivera.qwest.identity.domain.UserRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.AggregateWith;
@@ -18,6 +19,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
@@ -39,6 +41,12 @@ class PageControllerTest {
 
     @MockBean
     UserRepository userRepository;
+
+    @BeforeEach
+    void setUp() {
+        when(userRepository.nextId())
+                .thenCallRealMethod();
+    }
 
     @Test
     void it_gets_login_page() throws Exception {

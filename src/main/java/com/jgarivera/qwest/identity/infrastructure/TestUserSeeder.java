@@ -3,10 +3,8 @@ package com.jgarivera.qwest.identity.infrastructure;
 import com.jgarivera.qwest.identity.domain.EmailAddress;
 import com.jgarivera.qwest.identity.domain.PersonalName;
 import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserId;
 import com.jgarivera.qwest.identity.domain.UserRepository;
 import com.jgarivera.qwest.identity.domain.Username;
-import com.jgarivera.qwest.shared.UUIDFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
@@ -22,12 +20,10 @@ class TestUserSeeder implements ApplicationRunner {
     private final Logger logger = LoggerFactory.getLogger(TestUserSeeder.class);
 
     private final UserRepository repository;
-    private final UUIDFactory uuidFactory;
     private final PasswordEncoder passwordEncoder;
 
-    TestUserSeeder(UserRepository repository, UUIDFactory uuidFactory, PasswordEncoder passwordEncoder) {
+    TestUserSeeder(UserRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
-        this.uuidFactory = uuidFactory;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -41,7 +37,7 @@ class TestUserSeeder implements ApplicationRunner {
         }
 
         var user = new User(
-                new UserId(uuidFactory.create()),
+                repository.nextId(),
                 new PersonalName("Juan", "Pedro", "Dela Cruz"),
                 new EmailAddress("juan@example.com"),
                 username,

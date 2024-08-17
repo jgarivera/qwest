@@ -21,7 +21,6 @@ class AvatarControllerTest {
 
     @Autowired
     MockMvc mockMvc;
-
     @MockBean
     AvatarService avatarService;
 

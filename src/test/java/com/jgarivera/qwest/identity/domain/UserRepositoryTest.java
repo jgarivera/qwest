@@ -1,8 +1,6 @@
 package com.jgarivera.qwest.identity.domain;
 
 import com.jgarivera.qwest.TestDatabaseConfiguration;
-import com.jgarivera.qwest.TestUUIDFactoryConfiguration;
-import com.jgarivera.qwest.shared.UUIDFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -14,11 +12,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import({TestDatabaseConfiguration.class, TestUUIDFactoryConfiguration.class})
+@Import(TestDatabaseConfiguration.class)
 class UserRepositoryTest {
 
-    @Autowired
-    UUIDFactory uuidFactory;
     @Autowired
     TestEntityManager entityManager;
     @Autowired
@@ -28,7 +24,7 @@ class UserRepositoryTest {
     void it_creates_user() {
         // Password encoding is irrelevant in this test
         var user = new User(
-                new UserId(uuidFactory.create()),
+                repository.nextId(),
                 new PersonalName("Juan", "Pedro", "Dela Cruz"),
                 new EmailAddress("juan@example.com"),
                 new Username("juandelacruz"),

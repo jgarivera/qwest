@@ -17,13 +17,13 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import java.util.List;
 
 @TestConfiguration
-@Import({TestUUIDFactoryConfiguration.class, SecurityConfiguration.class})
+@Import(SecurityConfiguration.class)
 public class TestSecurityConfiguration {
 
     @Bean
-    UserDetailsService userDetailsService(UUIDFactory uuidFactory, PasswordEncoder passwordEncoder) {
+    UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         List<UserDetails> users = List.of(new User(
-                new UserId(uuidFactory.create()),
+                new UserId(UUIDFactory.create()),
                 new PersonalName("First", "Middle", "Last"),
                 new EmailAddress("testuser@example.com"),
                 new Username("testuser"),
