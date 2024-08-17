@@ -1,12 +1,18 @@
 package com.jgarivera.qwest.identity.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import com.jgarivera.qwest.shared.BaseRepository;
+import com.jgarivera.qwest.shared.UUIDFactory;
 
-public interface UserRepository extends CrudRepository<User, UserId> {
+public interface UserRepository extends BaseRepository<User, UserId> {
 
     User findByUsername(Username username);
 
     boolean existsByUsername(Username username);
 
     User findByEmail(EmailAddress email);
+
+    @Override
+    default UserId nextId() {
+        return new UserId(UUIDFactory.create());
+    }
 }
