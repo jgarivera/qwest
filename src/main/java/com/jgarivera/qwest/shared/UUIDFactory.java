@@ -1,9 +1,12 @@
 package com.jgarivera.qwest.shared;
 
+import com.github.f4b6a3.uuid.UuidCreator;
+
 import java.util.UUID;
 
-@FunctionalInterface
-public interface UUIDFactory {
+public class UUIDFactory {
 
-    UUID create();
+    public static UUID create() {
+        return UuidCreator.getTimeOrderedEpoch();
+    }
 }
