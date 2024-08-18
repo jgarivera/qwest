@@ -35,15 +35,10 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     public User(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
         super(id);
 
-        Assert.notNull(name, "name must not be null");
-        Assert.notNull(email, "email must not be null");
-        Assert.notNull(username, "username must not be null");
-        Assert.hasText(password, "password must have text");
-
-        this.name = name;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+        setName(name);
+        setEmail(email);
+        setUsername(username);
+        setPassword(password);
 
         authorities = new ArrayList<>();
     }
@@ -53,6 +48,8 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     }
 
     public void setName(PersonalName name) {
+        Assert.notNull(name, "name must not be null");
+
         this.name = name;
     }
 
@@ -61,6 +58,8 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     }
 
     public void setEmail(EmailAddress email) {
+        Assert.notNull(email, "email must not be null");
+
         this.email = email;
     }
 
@@ -70,6 +69,8 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     }
 
     public void setUsername(Username username) {
+        Assert.notNull(username, "username must not be null");
+
         this.username = username;
     }
 
@@ -79,6 +80,8 @@ public class User extends BaseEntity<UserId> implements UserDetails {
     }
 
     public void setPassword(String password) {
+        Assert.hasText(password, "password must have text");
+
         this.password = password;
     }
 
