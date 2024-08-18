@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.domain;
 
-import com.jgarivera.qwest.shared.BaseEntity;
+import com.jgarivera.qwest.shared.BaseAggregateRoot;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity<UserId> implements UserDetails {
+public class User extends BaseAggregateRoot<UserId> implements UserDetails {
 
     @Embedded
     private PersonalName name;
