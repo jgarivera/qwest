@@ -20,14 +20,14 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withServerError;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-@RestClientTest(AvatarService.class)
-class AvatarServiceTest {
+@RestClientTest(RestAvatarService.class)
+class RestAvatarServiceTest {
 
     @MockBean
     AvatarSettings avatarSettings;
 
     @Autowired
-    AvatarService client;
+    RestAvatarService client;
     @Autowired
     MockRestServiceServer server;
 

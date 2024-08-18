@@ -1,5 +1,6 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
+import com.jgarivera.qwest.identity.application.AvatarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,9 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class AvatarService {
+class RestAvatarService implements AvatarService {
 
-    private final Logger logger = LoggerFactory.getLogger(AvatarService.class);
+    private final Logger logger = LoggerFactory.getLogger(RestAvatarService.class);
 
     /**
      * Applied to all users' avatars to achieve desired look-and-feel in the app.
@@ -22,7 +23,7 @@ public class AvatarService {
     private final RestClient restClient;
     private final AvatarSettings settings;
 
-    public AvatarService(RestClient restClient, AvatarSettings settings) {
+    public RestAvatarService(RestClient restClient, AvatarSettings settings) {
         this.restClient = restClient;
         this.settings = settings;
     }

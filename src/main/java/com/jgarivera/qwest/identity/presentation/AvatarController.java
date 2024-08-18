@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.presentation;
 
-import com.jgarivera.qwest.identity.infrastructure.AvatarService;
+import com.jgarivera.qwest.identity.application.AvatarService;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
