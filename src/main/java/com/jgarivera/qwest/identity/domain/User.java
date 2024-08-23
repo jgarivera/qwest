@@ -1,5 +1,6 @@
 package com.jgarivera.qwest.identity.domain;
 
+import com.jgarivera.qwest.identity.domain.event.UserRegistered;
 import com.jgarivera.qwest.shared.BaseAggregateRoot;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -32,7 +33,7 @@ public class User extends BaseAggregateRoot<UserId> implements UserDetails {
     protected User() {
     }
 
-    public User(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
+    protected User(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
         super(id);
 
         setName(name);
@@ -41,6 +42,14 @@ public class User extends BaseAggregateRoot<UserId> implements UserDetails {
         setPassword(password);
 
         authorities = new ArrayList<>();
+    }
+
+    public static User create(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
+        var user = new User(id, name, email, username, password);
+
+        user.registerEvent(new UserRegistered(user));
+
+        return user;
     }
 
     public PersonalName getName() {

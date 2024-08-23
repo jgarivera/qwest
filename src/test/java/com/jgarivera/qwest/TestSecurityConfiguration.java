@@ -22,7 +22,7 @@ public class TestSecurityConfiguration {
 
     @Bean
     UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-        List<UserDetails> users = List.of(new User(
+        List<UserDetails> users = List.of(User.create(
                 new UserId(UUIDFactory.create()),
                 new PersonalName("First", "Middle", "Last"),
                 new EmailAddress("testuser@example.com"),

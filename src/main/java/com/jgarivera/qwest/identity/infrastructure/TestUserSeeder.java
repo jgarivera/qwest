@@ -36,7 +36,7 @@ class TestUserSeeder implements ApplicationRunner {
             return;
         }
 
-        var user = new User(
+        var user = User.create(
                 repository.nextId(),
                 new PersonalName("Juan", "Pedro", "Dela Cruz"),
                 new EmailAddress("juan@example.com"),
