@@ -20,6 +20,8 @@ repositories {
     mavenCentral()
 }
 
+extra["springModulithVersion"] = "1.2.3"
+
 dependencies {
     // production
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -37,6 +39,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.modulith:spring-modulith-starter-core")
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -44,10 +47,17 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.springframework.modulith:spring-modulith-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // development
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.modulith:spring-modulith-bom:${property("springModulithVersion")}")
+    }
 }
 
 buildscript {
