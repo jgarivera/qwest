@@ -1,8 +1,11 @@
 package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.TestSecurityConfiguration;
+import com.jgarivera.qwest.identity.application.UserService;
+import com.jgarivera.qwest.identity.domain.EmailAddress;
+import com.jgarivera.qwest.identity.domain.PersonalName;
 import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserRepository;
+import com.jgarivera.qwest.identity.domain.Username;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +19,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -40,12 +45,12 @@ class PageControllerTest {
     MockMvc mockMvc;
 
     @MockBean
-    UserRepository userRepository;
+    UserService userService;
 
     @BeforeEach
     void setUp() {
-        when(userRepository.nextId())
-                .thenCallRealMethod();
+        when(userService.register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString()))
+                .thenReturn(mock(User.class));
     }
 
     @Test
@@ -102,7 +107,8 @@ class PageControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/login?registered"));
 
-        verify(userRepository, times(1)).save(any(User.class));
+        verify(userService, times(1))
+                .register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString());
     }
 
     @ParameterizedTest
@@ -126,6 +132,7 @@ class PageControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().hasErrors());
 
-        verify(userRepository, never()).save(any(User.class));
+        verify(userService, never())
+                .register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString());
     }
 }
