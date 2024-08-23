@@ -1,10 +1,10 @@
 package com.jgarivera.qwest.identity.presentation;
 
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserId;
-import com.jgarivera.qwest.identity.domain.UserRepository;
+import com.jgarivera.qwest.identity.application.UserService;
+import com.jgarivera.qwest.identity.domain.EmailAddress;
+import com.jgarivera.qwest.identity.domain.PersonalName;
+import com.jgarivera.qwest.identity.domain.Username;
 import jakarta.validation.Valid;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller("auth")
 class PageController {
 
-    private final UserRepository repository;
-    private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
-    PageController(UserRepository repository, PasswordEncoder passwordEncoder) {
-        this.repository = repository;
-        this.passwordEncoder = passwordEncoder;
+    PageController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/login")
@@ -38,10 +36,12 @@ class PageController {
             return "pages/register";
         }
 
-        UserId id = repository.nextId();
-        User user = form.toUser(id, passwordEncoder);
-
-        repository.save(user);
+        userService.register(
+                new PersonalName(form.getFirstName(), form.getMiddleName(), form.getLastName()),
+                new EmailAddress(form.getEmail()),
+                new Username(form.getUsername()),
+                form.getPassword()
+        );
 
         return "redirect:/login?registered";
     }

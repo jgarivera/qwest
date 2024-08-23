@@ -1,13 +1,9 @@
 package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.identity.domain.EmailAddress;
-import com.jgarivera.qwest.identity.domain.PersonalName;
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserId;
 import com.jgarivera.qwest.identity.domain.Username;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 class RegistrationForm {
 
@@ -33,16 +29,6 @@ class RegistrationForm {
 
     @NotBlank(message = "Password must not be blank")
     private String password;
-
-    public User toUser(UserId id, PasswordEncoder passwordEncoder) {
-        return new User(
-                id,
-                new PersonalName(firstName, middleName, lastName),
-                new EmailAddress(email),
-                new Username(username),
-                passwordEncoder.encode(password)
-        );
-    }
 
     public String getFirstName() {
         return firstName;
