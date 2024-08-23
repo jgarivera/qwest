@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.identity.infrastructure;
+package com.jgarivera.qwest.identity.application;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

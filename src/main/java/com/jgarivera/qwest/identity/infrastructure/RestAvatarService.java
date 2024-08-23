@@ -1,6 +1,7 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
 import com.jgarivera.qwest.identity.application.AvatarService;
+import com.jgarivera.qwest.identity.application.AvatarSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,5 +1,6 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
+import com.jgarivera.qwest.identity.application.AvatarSettings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
