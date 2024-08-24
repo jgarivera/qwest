@@ -1,0 +1,13 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.jgarivera.qwest.challenges`
+|Spring components
+|_Domain layer_
+
+* `c.j.q.c.domain.BadgeRepository`
+* `c.j.q.c.domain.ChallengeRepository`
+|Aggregate roots
+|* `c.j.q.c.domain.Badge`
+* `c.j.q.c.domain.Challenge`
+|===

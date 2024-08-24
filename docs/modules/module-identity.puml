@@ -1,0 +1,19 @@
+@startuml
+set separator none
+title Identity
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+Container_Boundary("QwestApplication.QwestApplication_boundary", "QwestApplication", $tags="") {
+  Component(QwestApplication.QwestApplication.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+  Component(QwestApplication.QwestApplication.Identity, "Identity", $techn="Module", $descr="", $tags="", $link="")
+}
+
+Rel(QwestApplication.QwestApplication.Identity, QwestApplication.QwestApplication.Shared, "depends on", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

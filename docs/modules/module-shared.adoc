@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.jgarivera.qwest.shared`
+|Spring components
+|_Repositories_
+
+* `c.j.q.s.IdentityFactory` (via `c.j.q.s.BaseRepository`)
+|Aggregate roots
+|* `c.j.q.s.BaseEntity`
+* `c.j.q.s.BaseAggregateRoot`
+|===

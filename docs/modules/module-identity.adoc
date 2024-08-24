@@ -1,0 +1,27 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.jgarivera.qwest.identity`
+|Spring components
+|_Application layer_
+
+* `c.j.q.i.application.AvatarSettings`
+
+_Domain layer_
+
+* `c.j.q.i.domain.UserRepository`
+
+_Infrastructure layer_
+
+* `c.j.q.i.application.UserService` (via `c.j.q.i.infrastructure.JpaUserService`)
+* `c.j.q.i.application.AvatarService` (via `c.j.q.i.infrastructure.RestAvatarService`)
+|Aggregate roots
+|* `c.j.q.i.domain.User`
+|Value types
+|* `c.j.q.i.domain.EmailAddress`
+* `c.j.q.i.domain.PersonalName`
+|Published events
+|* `c.j.q.i.domain.event.UserRegistered` created by:
+** `c.j.q.i.domain.User.create(…)`
+
+|===

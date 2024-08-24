@@ -1,0 +1,15 @@
+== QwestApplication
+plantuml::components.puml[]
+
+== Shared
+plantuml::module-shared.puml[]
+include::module-shared.adoc[]
+
+== Challenges
+plantuml::module-challenges.puml[]
+include::module-challenges.adoc[]
+
+== Identity
+plantuml::module-identity.puml[]
+include::module-identity.adoc[]
+
