@@ -1,13 +1,13 @@
 package com.jgarivera.qwest.challenges.domain;
 
-import com.jgarivera.qwest.shared.BaseEntity;
+import com.jgarivera.qwest.shared.BaseAggregateRoot;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "badges")
-public class Badge extends BaseEntity<BadgeId> {
+public class Badge extends BaseAggregateRoot<Badge, BadgeId> {
 
     private String title;
     private String description;
