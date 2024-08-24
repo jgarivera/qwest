@@ -1,8 +1,9 @@
 package com.jgarivera.qwest.identity.domain;
 
+import org.jmolecules.ddd.types.ValueObject;
 import org.springframework.util.Assert;
 
-public record PersonalName(String firstName, String middleName, String lastName) {
+public record PersonalName(String firstName, String middleName, String lastName) implements ValueObject {
 
     public PersonalName {
         Assert.hasText(firstName, "first name must have text");

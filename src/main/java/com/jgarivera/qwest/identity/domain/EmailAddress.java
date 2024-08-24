@@ -1,11 +1,12 @@
 package com.jgarivera.qwest.identity.domain;
 
+import org.jmolecules.ddd.types.ValueObject;
 import org.springframework.util.Assert;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public record EmailAddress(String value) {
+public record EmailAddress(String value) implements ValueObject {
 
     /**
      * Provided by OWASP.

@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseAggregateRoot<UserId> implements UserDetails {
+public class User extends BaseAggregateRoot<User, UserId> implements UserDetails {
 
     @Embedded
     private PersonalName name;
