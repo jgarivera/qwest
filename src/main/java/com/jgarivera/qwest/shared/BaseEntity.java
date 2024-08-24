@@ -5,11 +5,14 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.PostPersist;
 import jakarta.persistence.Transient;
+import org.jmolecules.ddd.types.AggregateRoot;
+import org.jmolecules.ddd.types.Entity;
 import org.springframework.data.domain.Persistable;
 import org.springframework.util.Assert;
 
 @MappedSuperclass
-public abstract class BaseEntity<ID> implements Persistable<ID> {
+public abstract class BaseEntity<T extends AggregateRoot<T, ?>, ID>
+        implements Entity<T, ID>, Persistable<ID> {
 
     @EmbeddedId
     protected ID id;
@@ -51,7 +54,7 @@ public abstract class BaseEntity<ID> implements Persistable<ID> {
             return true;
         }
 
-        if (!(o instanceof BaseEntity<?> other)) {
+        if (!(o instanceof BaseEntity<?, ?> other)) {
             return false;
         }
 

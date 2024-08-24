@@ -1,5 +1,7 @@
 package com.jgarivera.qwest.shared;
 
+import org.jmolecules.ddd.types.AggregateRoot;
+import org.jmolecules.ddd.types.Identifier;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.domain.AfterDomainEventPublication;
@@ -15,7 +17,9 @@ import java.util.List;
  * This class is adopted from {@link AbstractAggregateRoot} and extends {@link BaseEntity} to retain
  * its persistable behavior.
  */
-public abstract class BaseAggregateRoot<ID> extends BaseEntity<ID> {
+public abstract class BaseAggregateRoot<T extends AggregateRoot<T, ID>, ID extends Identifier>
+        extends BaseEntity<T, ID>
+        implements AggregateRoot<T, ID> {
 
     @Transient
     private transient final List<Object> domainEvents = new ArrayList<>();
