@@ -24,7 +24,15 @@ services:
     tmpfs:
       - "/run"
       - "/tmp"
+  mailpit:
+    image: axllent/mailpit:v1.20.2
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    volumes:
+      - mailpit-data:/data
 
 volumes:
   postgres-data:
   pgadmin-data:
+  mailpit-data:
