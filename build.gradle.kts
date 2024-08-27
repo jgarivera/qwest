@@ -39,6 +39,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+
     implementation("org.springframework.modulith:spring-modulith-starter-core")
     implementation(platform("org.jmolecules:jmolecules-bom:2023.1.3"))
     implementation("org.jmolecules:jmolecules-ddd")
