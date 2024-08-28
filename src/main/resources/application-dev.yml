@@ -10,6 +10,10 @@ spring:
       ddl-auto: none
     show-sql: true
 
+  mail:
+    host: localhost
+    port: 1025
+
 avatars:
   api-url: http://localhost:3000/9.x/{style}/svg?seed={username}
   default-style: adventurer-neutral
