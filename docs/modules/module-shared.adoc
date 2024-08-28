@@ -3,10 +3,14 @@
 |Base package
 |`com.jgarivera.qwest.shared`
 |Spring components
-|_Repositories_
+|_Domain layer_
 
-* `c.j.q.s.IdentityFactory` (via `c.j.q.s.BaseRepository`)
+* `c.j.q.s.domain.IdentityFactory` (via `c.j.q.s.domain.BaseRepository`)
+
+_Infrastructure layer_
+
+* `c.j.q.s.application.EmailService` (via `c.j.q.s.infrastructure.JavaEmailService`)
 |Aggregate roots
-|* `c.j.q.s.BaseEntity`
-* `c.j.q.s.BaseAggregateRoot`
+|* `c.j.q.s.domain.BaseEntity`
+* `c.j.q.s.domain.BaseAggregateRoot`
 |===
