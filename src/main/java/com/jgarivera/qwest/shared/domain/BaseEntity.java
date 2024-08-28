@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.shared;
+package com.jgarivera.qwest.shared.domain;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.MappedSuperclass;

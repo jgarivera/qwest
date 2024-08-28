@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.shared;
+package com.jgarivera.qwest.shared.domain;
 
 import org.jmolecules.ddd.types.AggregateRoot;
 import org.jmolecules.ddd.types.Identifier;

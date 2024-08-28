@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.domain;
 
-import com.jgarivera.qwest.shared.BaseRepository;
+import com.jgarivera.qwest.shared.domain.BaseRepository;
 import com.jgarivera.qwest.shared.UUIDFactory;
 
 public interface UserRepository extends BaseRepository<User, UserId> {

@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.identity.domain;
 
 import com.jgarivera.qwest.identity.domain.event.UserRegistered;
-import com.jgarivera.qwest.shared.BaseAggregateRoot;
+import com.jgarivera.qwest.shared.domain.BaseAggregateRoot;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.challenges.domain;
 
-import com.jgarivera.qwest.shared.BaseAggregateRoot;
+import com.jgarivera.qwest.shared.domain.BaseAggregateRoot;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.springframework.util.Assert;
