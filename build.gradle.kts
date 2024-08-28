@@ -54,6 +54,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    testImplementation("com.icegreen:greenmail-junit5:2.0.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // development
@@ -71,6 +72,12 @@ buildscript {
         classpath("org.flywaydb:flyway-database-postgresql:10.10.0")
     }
 }
+
+//configurations.all {
+//    resolutionStrategy {
+//        exclude("com.sun.activation", "jakarta.activation")
+//    }
+//}
 
 tasks.withType<Test> {
     useJUnitPlatform()
