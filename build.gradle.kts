@@ -42,9 +42,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-mail")
 
     implementation("org.springframework.modulith:spring-modulith-starter-core")
-    implementation(platform("org.jmolecules:jmolecules-bom:2023.1.3"))
-    implementation("org.jmolecules:jmolecules-ddd")
-    implementation("org.jmolecules:jmolecules-events")
+    implementation(platform("org.jmolecules:jmolecules-bom:2023.1.4"))
+    implementation("org.jmolecules.integrations:jmolecules-starter-ddd")
     implementation("org.jmolecules:jmolecules-layered-architecture")
 
     // test
@@ -54,6 +53,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    testImplementation("org.jmolecules.integrations:jmolecules-starter-test")
     testImplementation("com.icegreen:greenmail-junit5:2.0.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
