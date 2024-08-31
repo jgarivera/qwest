@@ -1,2 +1,2 @@
-@org.jmolecules.architecture.layered.InfrastructureLayer
+@org.jmolecules.architecture.onion.simplified.InfrastructureRing
 package com.jgarivera.qwest.shared.infrastructure;

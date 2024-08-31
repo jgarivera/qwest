@@ -44,7 +44,7 @@ dependencies {
     implementation("org.springframework.modulith:spring-modulith-starter-core")
     implementation(platform("org.jmolecules:jmolecules-bom:2023.1.4"))
     implementation("org.jmolecules.integrations:jmolecules-starter-ddd")
-    implementation("org.jmolecules:jmolecules-layered-architecture")
+    implementation("org.jmolecules:jmolecules-onion-architecture")
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
