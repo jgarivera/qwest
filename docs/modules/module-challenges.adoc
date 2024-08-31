@@ -3,7 +3,7 @@
 |Base package
 |`com.jgarivera.qwest.challenges`
 |Spring components
-|_Domain layer_
+|_Repositories_
 
 * `c.j.q.c.domain.BadgeRepository`
 * `c.j.q.c.domain.ChallengeRepository`

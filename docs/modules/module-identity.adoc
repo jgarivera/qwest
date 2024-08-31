@@ -3,18 +3,18 @@
 |Base package
 |`com.jgarivera.qwest.identity`
 |Spring components
-|_Application layer_
-
-* `c.j.q.i.application.AvatarSettings`
-
-_Domain layer_
-
-* `c.j.q.i.domain.UserRepository`
-
-_Infrastructure layer_
+|_Services_
 
 * `c.j.q.i.application.UserService` (via `c.j.q.i.infrastructure.JpaUserService`)
 * `c.j.q.i.application.AvatarService` (via `c.j.q.i.infrastructure.RestAvatarService`)
+
+_Repositories_
+
+* `c.j.q.i.domain.UserRepository`
+
+_Configuration properties_
+
+* `c.j.q.i.application.AvatarSettings`
 |Bean references
 |* `c.j.q.s.application.EmailService` (in Shared)
 |Aggregate roots
