@@ -14,18 +14,18 @@ class ModularityTests {
     ApplicationModules modules = ApplicationModules.of(QwestApplication.class);
 
     @Test
-    void verifiesArchitecture() {
+    void verifies_architecture() {
         modules.verify();
     }
 
-    @Test
-    void createDocumentation() {
-        new Documenter(modules, "docs/modules")
-                .writeDocumentation();
+    @ArchTest
+    void verifies_ddd_rules(JavaClasses classes) {
+        JMoleculesDddRules.all().check(classes);
     }
 
-    @ArchTest
-    void verifiesDddRules(JavaClasses classes) {
-        JMoleculesDddRules.all().check(classes);
+    @Test
+    void creates_documentation() {
+        new Documenter(modules, "docs/modules")
+                .writeDocumentation();
     }
 }
