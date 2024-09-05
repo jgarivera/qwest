@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.identity.domain;
 
+import com.github.f4b6a3.uuid.UuidCreator;
 import com.jgarivera.qwest.shared.domain.BaseRepository;
-import com.jgarivera.qwest.shared.UUIDFactory;
 
 public interface UserRepository extends BaseRepository<User, UserId> {
 
@@ -13,6 +13,6 @@ public interface UserRepository extends BaseRepository<User, UserId> {
 
     @Override
     default UserId nextId() {
-        return new UserId(UUIDFactory.create());
+        return new UserId(UuidCreator.getTimeOrderedEpoch());
     }
 }
