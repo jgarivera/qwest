@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,6 +30,8 @@ class JavaEmailServiceTest {
 
     @Test
     void it_sends_email() throws MessagingException {
+        ReflectionTestUtils.setField(emailService, "sender", null);
+
         emailService.send("test@email.com", "Test subject", "email/welcome");
 
         MimeMessage[] messages = greenMail.getReceivedMessages();
