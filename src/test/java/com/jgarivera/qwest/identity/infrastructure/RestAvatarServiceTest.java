@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestClient;
 
@@ -37,7 +38,7 @@ class RestAvatarServiceTest {
         when(avatarSettings.getApiUrl()).thenReturn("http://localhost:1337/{style}/png?user={username}");
         when(avatarSettings.getDefaultStyle()).thenReturn("basic");
 
-        client.clearGlobalCosmeticParams();
+        ReflectionTestUtils.setField(client, "globalCosmeticParams", "");
     }
 
     @Test

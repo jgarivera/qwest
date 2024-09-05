@@ -18,6 +18,7 @@ class RestAvatarService implements AvatarService {
 
     /**
      * Applied to all users' avatars to achieve desired look-and-feel in the app.
+     * Cleared in testing.
      */
     private String globalCosmeticParams = "&radius=10";
 
@@ -53,9 +54,5 @@ class RestAvatarService implements AvatarService {
         }
 
         return Optional.ofNullable(imageData);
-    }
-
-    void clearGlobalCosmeticParams() {
-        globalCosmeticParams = "";
     }
 }
