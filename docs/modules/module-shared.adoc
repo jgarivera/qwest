@@ -5,12 +5,12 @@
 |Spring components
 |_Services_
 
-* `c.j.q.s.application.EmailService` (via `c.j.q.s.infrastructure.JavaEmailService`)
+* `c.j.q.s.application.EmailService` (via `c.j.q.s.infrastructure.mail.JavaEmailService`)
 
 _Repositories_
 
-* `c.j.q.s.domain.IdentityFactory` (via `c.j.q.s.domain.BaseRepository`)
+* `c.j.q.s.domain.model.IdentityFactory` (via `c.j.q.s.domain.model.BaseRepository`)
 |Aggregate roots
-|* `c.j.q.s.domain.BaseEntity`
-* `c.j.q.s.domain.BaseAggregateRoot`
+|* `c.j.q.s.domain.model.BaseEntity`
+* `c.j.q.s.domain.model.BaseAggregateRoot`
 |===

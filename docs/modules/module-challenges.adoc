@@ -5,9 +5,9 @@
 |Spring components
 |_Repositories_
 
-* `c.j.q.c.domain.BadgeRepository`
-* `c.j.q.c.domain.ChallengeRepository`
+* `c.j.q.c.domain.model.BadgeRepository`
+* `c.j.q.c.domain.model.ChallengeRepository`
 |Aggregate roots
-|* `c.j.q.c.domain.Badge`
-* `c.j.q.c.domain.Challenge`
+|* `c.j.q.c.domain.model.Badge`
+* `c.j.q.c.domain.model.Challenge`
 |===

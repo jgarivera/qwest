@@ -14,8 +14,8 @@ Container_Boundary("QwestApplication.QwestApplication_boundary", "QwestApplicati
   Component(QwestApplication.QwestApplication.Identity, "Identity", $techn="Module", $descr="", $tags="", $link="")
 }
 
-Rel(QwestApplication.QwestApplication.Identity, QwestApplication.QwestApplication.Shared, "uses", $techn="", $tags="", $link="")
 Rel(QwestApplication.QwestApplication.Challenges, QwestApplication.QwestApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(QwestApplication.QwestApplication.Identity, QwestApplication.QwestApplication.Shared, "uses", $techn="", $tags="", $link="")
 
 SHOW_LEGEND(true)
 @enduml
