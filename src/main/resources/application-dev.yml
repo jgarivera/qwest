@@ -14,6 +14,9 @@ spring:
     host: localhost
     port: 1025
 
+  security:
+    remember-me-key: secret
+
 avatars:
   api-url: http://localhost:3000/9.x/{style}/svg?seed={username}
   default-style: adventurer-neutral

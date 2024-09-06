@@ -1,5 +1,6 @@
 package com.jgarivera.qwest;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,8 +8,13 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import java.time.Duration;
+
 @Configuration
 public class SecurityConfiguration {
+
+    @Value("${spring.security.remember-me-key}")
+    String rememberMeKey;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -21,6 +27,9 @@ public class SecurityConfiguration {
                 c -> c.loginPage("/login")
                         .failureUrl("/login?error")
         );
+
+        http.rememberMe(c -> c.key(rememberMeKey)
+                .tokenValiditySeconds((int) Duration.ofHours(24).toSeconds()));
 
         http.logout(c -> c.logoutSuccessUrl("/"));
 
