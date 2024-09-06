@@ -2,10 +2,10 @@ package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.TestSecurityConfiguration;
 import com.jgarivera.qwest.identity.application.UserService;
-import com.jgarivera.qwest.identity.domain.EmailAddress;
-import com.jgarivera.qwest.identity.domain.PersonalName;
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.Username;
+import com.jgarivera.qwest.identity.domain.model.EmailAddress;
+import com.jgarivera.qwest.identity.domain.model.PersonalName;
+import com.jgarivera.qwest.identity.domain.model.User;
+import com.jgarivera.qwest.identity.domain.model.Username;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

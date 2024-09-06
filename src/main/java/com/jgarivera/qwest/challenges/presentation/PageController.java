@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.challenges.presentation;
 
-import com.jgarivera.qwest.challenges.domain.Challenge;
-import com.jgarivera.qwest.challenges.domain.ChallengeRepository;
+import com.jgarivera.qwest.challenges.domain.model.Challenge;
+import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

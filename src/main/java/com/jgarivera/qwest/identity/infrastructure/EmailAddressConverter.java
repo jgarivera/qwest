@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
-import com.jgarivera.qwest.identity.domain.EmailAddress;
+import com.jgarivera.qwest.identity.domain.model.EmailAddress;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 

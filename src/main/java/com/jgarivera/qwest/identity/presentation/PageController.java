@@ -1,9 +1,9 @@
 package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.identity.application.UserService;
-import com.jgarivera.qwest.identity.domain.EmailAddress;
-import com.jgarivera.qwest.identity.domain.PersonalName;
-import com.jgarivera.qwest.identity.domain.Username;
+import com.jgarivera.qwest.identity.domain.model.EmailAddress;
+import com.jgarivera.qwest.identity.domain.model.PersonalName;
+import com.jgarivera.qwest.identity.domain.model.Username;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

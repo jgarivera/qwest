@@ -1,10 +1,10 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
-import com.jgarivera.qwest.identity.domain.EmailAddress;
-import com.jgarivera.qwest.identity.domain.PersonalName;
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserRepository;
-import com.jgarivera.qwest.identity.domain.Username;
+import com.jgarivera.qwest.identity.domain.model.EmailAddress;
+import com.jgarivera.qwest.identity.domain.model.PersonalName;
+import com.jgarivera.qwest.identity.domain.model.User;
+import com.jgarivera.qwest.identity.domain.model.UserRepository;
+import com.jgarivera.qwest.identity.domain.model.Username;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;

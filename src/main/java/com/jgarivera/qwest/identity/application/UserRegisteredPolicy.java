@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.identity.application;
 
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.event.UserRegistered;
+import com.jgarivera.qwest.identity.domain.model.User;
+import com.jgarivera.qwest.identity.domain.model.UserRegistered;
 import com.jgarivera.qwest.shared.application.EmailService;
 import jakarta.mail.MessagingException;
 import org.springframework.scheduling.annotation.Async;

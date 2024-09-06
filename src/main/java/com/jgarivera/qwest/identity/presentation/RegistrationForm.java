@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.identity.presentation;
 
-import com.jgarivera.qwest.identity.domain.EmailAddress;
-import com.jgarivera.qwest.identity.domain.Username;
+import com.jgarivera.qwest.identity.domain.model.EmailAddress;
+import com.jgarivera.qwest.identity.domain.model.Username;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 

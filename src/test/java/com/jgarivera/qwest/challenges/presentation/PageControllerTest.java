@@ -1,7 +1,7 @@
 package com.jgarivera.qwest.challenges.presentation;
 
-import com.jgarivera.qwest.challenges.domain.Challenge;
-import com.jgarivera.qwest.challenges.domain.ChallengeRepository;
+import com.jgarivera.qwest.challenges.domain.model.Challenge;
+import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

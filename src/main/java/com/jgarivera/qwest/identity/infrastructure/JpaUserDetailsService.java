@@ -1,8 +1,8 @@
 package com.jgarivera.qwest.identity.infrastructure;
 
-import com.jgarivera.qwest.identity.domain.User;
-import com.jgarivera.qwest.identity.domain.UserRepository;
-import com.jgarivera.qwest.identity.domain.Username;
+import com.jgarivera.qwest.identity.domain.model.User;
+import com.jgarivera.qwest.identity.domain.model.UserRepository;
+import com.jgarivera.qwest.identity.domain.model.Username;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
