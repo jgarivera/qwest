@@ -30,7 +30,7 @@ class JavaEmailServiceTest {
 
     @Test
     void it_sends_email() throws MessagingException {
-        ReflectionTestUtils.setField(emailService, "sender", null);
+        ReflectionTestUtils.setField(emailService, "sender", "testsender@email.com");
 
         emailService.send("test@email.com", "Test subject", "email/welcome");
 
