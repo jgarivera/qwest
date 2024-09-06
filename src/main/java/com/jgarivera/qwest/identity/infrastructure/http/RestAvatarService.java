@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.identity.infrastructure;
+package com.jgarivera.qwest.identity.infrastructure.http;
 
 import com.jgarivera.qwest.identity.application.AvatarService;
 import com.jgarivera.qwest.identity.application.AvatarSettings;

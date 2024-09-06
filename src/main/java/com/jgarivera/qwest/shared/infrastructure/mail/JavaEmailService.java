@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.shared.infrastructure;
+package com.jgarivera.qwest.shared.infrastructure.mail;
 
 import com.jgarivera.qwest.shared.application.EmailService;
 import jakarta.mail.MessagingException;

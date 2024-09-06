@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.shared.infrastructure;
+package com.jgarivera.qwest.shared.infrastructure.mail;
 
 import com.icegreen.greenmail.junit5.GreenMailExtension;
 import com.icegreen.greenmail.util.ServerSetupTest;

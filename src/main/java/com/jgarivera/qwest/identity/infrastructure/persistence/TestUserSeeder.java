@@ -1,4 +1,4 @@
-package com.jgarivera.qwest.identity.infrastructure;
+package com.jgarivera.qwest.identity.infrastructure.persistence;
 
 import com.jgarivera.qwest.identity.domain.model.EmailAddress;
 import com.jgarivera.qwest.identity.domain.model.PersonalName;

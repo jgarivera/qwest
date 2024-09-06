@@ -1,2 +1,2 @@
 @org.jmolecules.architecture.onion.simplified.InfrastructureRing
-package com.jgarivera.qwest.shared.infrastructure;
+package com.jgarivera.qwest.identity.infrastructure.persistence;
