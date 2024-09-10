@@ -1,5 +1,2 @@
 [sqlfluff]
 dialect = postgres
-
-[sqlfluff:rules:references.keywords]
-ignore_words = password
