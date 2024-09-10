@@ -21,14 +21,13 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
     public Challenge(ChallengeId id, String title) {
         super(id);
 
-        Assert.hasText(title, "title must have text");
-
-        this.title = title;
+        setTitle(title);
     }
 
     public Challenge(ChallengeId id, String title, String description) {
         this(id, title);
-        this.description = description;
+
+        setDescription(description);
     }
 
     public String getTitle() {
@@ -36,6 +35,8 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
     }
 
     public void setTitle(String title) {
+        Assert.hasText(title, "title must have text");
+
         this.title = title;
     }
 
