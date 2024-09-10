@@ -2,3 +2,6 @@ spring:
   mail:
     host: localhost
     port: 3025
+
+  security:
+    remember-me-key: secret
