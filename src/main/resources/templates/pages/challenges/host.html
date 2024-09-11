@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <title>Challenges</title>
+</head>
+
+<body>
+<section layout:fragment="~{app-content}">
+    <h1 class="title">Host a challenge</h1>
+    <h2 class="subtitle">
+        Host a challenge for participants to join in
+    </h2>
+
+    <div class="container is-max-desktop">
+        <form method="post" th:action="@{/challenges}" th:object="${form}" class="form-horizontal">
+            <fieldset>
+                <div class="field">
+                    <label class="label" for="title">Title</label>
+                    <div class="control">
+                        <input id="title" name="title" type="text" class="input" placeholder="Title"
+                               th:classappend="${#fields.hasErrors('title')} ? is-danger"
+                               th:field="*{title}">
+                    </div>
+                    <p class="help is-danger" th:if="${#fields.hasErrors('title')}"
+                       th:errors="*{title}"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="description">Description</label>
+                    <div class="control">
+                        <textarea id="description" class="textarea" placeholder="Description"
+                                  th:classappend="${#fields.hasErrors('description')} ? is-danger"
+                                  th:field="*{description}"
+                        ></textarea>
+                    </div>
+                    <p class="help is-danger" th:if="${#fields.hasErrors('description')}"
+                       th:errors="*{description}"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="visibility">Visibility</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="visibility"
+                                    th:classappend="${#fields.hasErrors('visibility')} ? is-danger"
+                                    th:field="*{visibility}">
+                                <option value="1">Public</option>
+                                <option value="2">Invite Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="help is-danger" th:if="${#fields.hasErrors('visibility')}"
+                       th:errors="*{visibility}"></p>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Host</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-light" th:href="@{/challenges}">Cancel</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>

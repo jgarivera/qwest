@@ -1,31 +1,50 @@
 package com.jgarivera.qwest.challenges.presentation;
 
-import com.jgarivera.qwest.challenges.domain.model.Challenge;
-import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
+import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/challenges")
 class PageController {
 
-    private final ChallengeRepository repository;
+    private final ChallengeCatalogueService catalogueService;
 
-    private PageController(ChallengeRepository repository) {
-        this.repository = repository;
+    private PageController(ChallengeCatalogueService catalogueService) {
+        this.catalogueService = catalogueService;
     }
 
-    @GetMapping("/challenges")
+    @GetMapping
     private String challenges(Model model) {
-        Iterable<Challenge> challenges = repository.findAll();
-
-        model.addAttribute("challenges", challenges);
+        model.addAttribute("challenges", catalogueService.getChallenges());
 
         return "pages/challenges/list";
     }
 
-    @GetMapping("/challenge-details")
+    @GetMapping("/{id}")
     private String challengeDetails(Model model) {
         return "pages/challenges/details";
+    }
+
+    @GetMapping("/host")
+    private String hostChallenge(@ModelAttribute("form") ChallengeHostingForm form) {
+        return "pages/challenges/host";
+    }
+
+    @PostMapping
+    private String hostChallenge(@Valid @ModelAttribute("form") ChallengeHostingForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            return "pages/challenges/host";
+        }
+
+        catalogueService.hostChallenge(form.getTitle(), form.getVisibility(), form.getDescription());
+
+        return "redirect:/challenges?hosted";
     }
 }
