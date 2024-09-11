@@ -1,6 +1,5 @@
 package com.jgarivera.qwest.challenges.domain.model;
 
-import org.jmolecules.ddd.types.Identifiable;
 import org.jmolecules.ddd.types.ValueObject;
 
 import java.util.Map;
@@ -10,7 +9,7 @@ import java.util.stream.Stream;
 import static java.util.function.UnaryOperator.identity;
 import static java.util.stream.Collectors.toMap;
 
-public enum ChallengeVisibility implements ValueObject, Identifiable<Integer> {
+public enum ChallengeVisibility implements ValueObject {
     PUBLIC(1),
     INVITE_ONLY(2);
 
@@ -28,7 +27,6 @@ public enum ChallengeVisibility implements ValueObject, Identifiable<Integer> {
         this.id = id;
     }
 
-    @Override
     public Integer getId() {
         return id;
     }
