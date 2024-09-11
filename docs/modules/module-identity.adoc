@@ -2,26 +2,8 @@
 |===
 |Base package
 |`com.jgarivera.qwest.identity`
-|Spring components
-|_Services_
-
-* `c.j.q.i.application.AvatarService` (via `c.j.q.i.infrastructure.http.RestAvatarService`)
-* `c.j.q.i.application.UserService` (via `c.j.q.i.infrastructure.persistence.JpaUserService`)
-
-_Repositories_
-
-* `c.j.q.i.domain.model.UserRepository`
-
-_Configuration properties_
-
-* `c.j.q.i.application.AvatarSettings`
 |Bean references
 |* `c.j.q.s.application.EmailService` (in Shared)
-|Aggregate roots
-|* `c.j.q.i.domain.model.User`
-|Value types
-|* `c.j.q.i.domain.model.EmailAddress`
-* `c.j.q.i.domain.model.PersonalName`
 |Published events
 |* `c.j.q.i.domain.model.UserRegistered` created by:
 ** `c.j.q.i.domain.model.User.create(…)`

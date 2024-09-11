@@ -2,16 +2,6 @@
 |===
 |Base package
 |`com.jgarivera.qwest.challenges`
-|Spring components
-|_Repositories_
-
-* `c.j.q.c.domain.model.BadgeRepository`
-* `c.j.q.c.domain.model.ChallengeRepository`
-|Aggregate roots
-|* `c.j.q.c.domain.model.Badge`
-* `c.j.q.c.domain.model.Challenge`
-|Value types
-|* `c.j.q.c.domain.model.ChallengeVisibility`
 |Published events
 |* `c.j.q.c.domain.model.ChallengeHosted`
 
