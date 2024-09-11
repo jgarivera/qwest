@@ -23,7 +23,12 @@ class ChallengeRepositoryTest {
     @Test
     void it_creates_challenge() {
         var id = repository.nextId();
-        var challenge = new Challenge(id, "Challenge title", "Challenge description");
+        var challenge = new Challenge(
+                id,
+                "Challenge title",
+                ChallengeVisibility.PUBLIC,
+                "Challenge description"
+        );
 
         repository.save(challenge);
         entityManager.flush();
@@ -33,5 +38,6 @@ class ChallengeRepositoryTest {
         assertThat(savedChallenge).isEqualTo(challenge);
         assertThat(savedChallenge.getTitle()).isEqualTo("Challenge title");
         assertThat(savedChallenge.getDescription()).isEqualTo("Challenge description");
+        assertThat(savedChallenge.getVisibility()).isEqualTo(ChallengeVisibility.PUBLIC);
     }
 }

@@ -2,6 +2,7 @@ package com.jgarivera.qwest.challenges.presentation;
 
 import com.jgarivera.qwest.challenges.domain.model.Challenge;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
+import com.jgarivera.qwest.challenges.domain.model.ChallengeVisibility;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -34,8 +35,8 @@ class PageControllerTest {
                 .thenCallRealMethod();
 
         List<Challenge> challenges = List.of(
-                new Challenge(challengeRepository.nextId(), "First challenge"),
-                new Challenge(challengeRepository.nextId(), "Second challenge")
+                new Challenge(challengeRepository.nextId(), "First challenge", ChallengeVisibility.PUBLIC),
+                new Challenge(challengeRepository.nextId(), "Second challenge", ChallengeVisibility.PUBLIC)
         );
 
         when(challengeRepository.findAll())

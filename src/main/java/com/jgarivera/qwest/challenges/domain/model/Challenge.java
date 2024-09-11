@@ -11,6 +11,7 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
 
     private String title;
     private String description;
+    private ChallengeVisibility visibility;
 
     /**
      * As required by JPA.
@@ -18,14 +19,15 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
     protected Challenge() {
     }
 
-    public Challenge(ChallengeId id, String title) {
+    public Challenge(ChallengeId id, String title, ChallengeVisibility visibility) {
         super(id);
 
         setTitle(title);
+        setVisibility(visibility);
     }
 
-    public Challenge(ChallengeId id, String title, String description) {
-        this(id, title);
+    public Challenge(ChallengeId id, String title, ChallengeVisibility visibility, String description) {
+        this(id, title, visibility);
 
         setDescription(description);
     }
@@ -46,6 +48,16 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ChallengeVisibility getVisibility() {
+        return visibility;
+    }
+
+    protected void setVisibility(ChallengeVisibility visibility) {
+        Assert.notNull(visibility, "visibility must not be null");
+
+        this.visibility = visibility;
     }
 
     @Override
