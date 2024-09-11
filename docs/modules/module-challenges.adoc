@@ -10,4 +10,9 @@
 |Aggregate roots
 |* `c.j.q.c.domain.model.Badge`
 * `c.j.q.c.domain.model.Challenge`
+|Value types
+|* `c.j.q.c.domain.model.ChallengeVisibility`
+|Published events
+|* `c.j.q.c.domain.model.ChallengeHosted`
+
 |===
