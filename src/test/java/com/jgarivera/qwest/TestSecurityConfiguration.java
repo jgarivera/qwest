@@ -6,6 +6,7 @@ import com.jgarivera.qwest.identity.domain.model.PersonalName;
 import com.jgarivera.qwest.identity.domain.model.User;
 import com.jgarivera.qwest.identity.domain.model.UserId;
 import com.jgarivera.qwest.identity.domain.model.Username;
+import com.jgarivera.qwest.shared.application.SecurityConfiguration;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;

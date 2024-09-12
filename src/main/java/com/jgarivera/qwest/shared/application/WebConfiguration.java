@@ -1,4 +1,4 @@
-package com.jgarivera.qwest;
+package com.jgarivera.qwest.shared.application;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

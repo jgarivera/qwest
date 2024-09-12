@@ -1,5 +1,6 @@
 package com.jgarivera.qwest;
 
+import com.jgarivera.qwest.shared.application.SecurityConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
