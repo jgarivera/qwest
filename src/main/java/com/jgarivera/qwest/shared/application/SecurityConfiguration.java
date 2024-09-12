@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.time.Duration;
 
 @Configuration
-public class SecurityConfiguration {
+class SecurityConfiguration {
 
     @Value("${spring.security.remember-me-key}")
     String rememberMeKey;

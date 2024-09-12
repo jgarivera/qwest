@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.presentation;
 
-import com.jgarivera.qwest.TestSecurityConfiguration;
+import com.jgarivera.qwest.shared.application.TestSecurityConfiguration;
 import com.jgarivera.qwest.identity.application.UserService;
 import com.jgarivera.qwest.identity.domain.model.EmailAddress;
 import com.jgarivera.qwest.identity.domain.model.PersonalName;

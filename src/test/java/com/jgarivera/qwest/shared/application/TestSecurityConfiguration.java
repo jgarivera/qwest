@@ -1,4 +1,4 @@
-package com.jgarivera.qwest;
+package com.jgarivera.qwest.shared.application;
 
 import com.github.f4b6a3.uuid.UuidCreator;
 import com.jgarivera.qwest.identity.domain.model.EmailAddress;
@@ -6,7 +6,6 @@ import com.jgarivera.qwest.identity.domain.model.PersonalName;
 import com.jgarivera.qwest.identity.domain.model.User;
 import com.jgarivera.qwest.identity.domain.model.UserId;
 import com.jgarivera.qwest.identity.domain.model.Username;
-import com.jgarivera.qwest.shared.application.SecurityConfiguration;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;

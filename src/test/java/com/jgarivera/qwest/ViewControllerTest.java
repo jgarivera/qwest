@@ -1,6 +1,6 @@
 package com.jgarivera.qwest;
 
-import com.jgarivera.qwest.shared.application.SecurityConfiguration;
+import com.jgarivera.qwest.shared.application.TestSecurityConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(excludeFilters = {
         @ComponentScan.Filter(type = FilterType.REGEX, pattern = ".*Controller")
 })
-@Import(SecurityConfiguration.class)
+@Import(TestSecurityConfiguration.class)
 class ViewControllerTest {
 
     @Autowired

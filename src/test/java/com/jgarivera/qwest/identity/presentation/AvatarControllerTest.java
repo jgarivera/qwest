@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.presentation;
 
-import com.jgarivera.qwest.TestSecurityConfiguration;
+import com.jgarivera.qwest.shared.application.TestSecurityConfiguration;
 import com.jgarivera.qwest.identity.application.AvatarService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

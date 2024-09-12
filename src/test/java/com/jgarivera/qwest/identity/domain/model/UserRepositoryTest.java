@@ -1,6 +1,6 @@
 package com.jgarivera.qwest.identity.domain.model;
 
-import com.jgarivera.qwest.TestDatabaseConfiguration;
+import com.jgarivera.qwest.shared.application.TestDatabaseConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
