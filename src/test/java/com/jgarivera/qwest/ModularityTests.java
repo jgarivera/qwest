@@ -1,6 +1,7 @@
 package com.jgarivera.qwest;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
+import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import org.jmolecules.archunit.JMoleculesArchitectureRules;
@@ -9,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
-@AnalyzeClasses(packagesOf = QwestApplication.class)
+@AnalyzeClasses(packagesOf = QwestApplication.class, importOptions = ImportOption.DoNotIncludeTests.class)
 class ModularityTests {
 
     ApplicationModules modules = ApplicationModules.of(QwestApplication.class);
