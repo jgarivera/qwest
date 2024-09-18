@@ -14,9 +14,16 @@
         Available challenges to participate in
     </h2>
 
-    <a class="button" th:href="@{/challenges/host}">
-        Host a challenge
-    </a>
+    <div class="container mb-4">
+        <div th:if="${hosted}"  class="notification is-success mb-4">
+            <button class="delete"></button>
+            You have successfully hosted a challenge!
+        </div>
+
+        <a class="button" th:href="@{/challenges/host}">
+            Host a challenge
+        </a>
+    </div>
 
     <div class="grid is-col-min-12">
         <div class="cell" th:each="challenge : ${challenges}">

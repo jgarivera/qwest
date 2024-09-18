@@ -28,6 +28,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -93,7 +94,8 @@ class PageControllerTest {
                         .param("visibility", String.valueOf(form.getVisibility()))
                 )
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/challenges?hosted"));
+                .andExpect(redirectedUrl("/challenges"))
+                .andExpect(flash().attribute("hosted", true));
 
         verify(catalogueService, times(1))
                 .hostChallenge(anyString(), anyInt(), nullable(String.class));
