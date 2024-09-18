@@ -11,18 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller("auth")
-class PageController {
+@Controller
+class RegistrationPageController {
 
     private final UserService userService;
 
-    PageController(UserService userService) {
+    RegistrationPageController(UserService userService) {
         this.userService = userService;
-    }
-
-    @GetMapping("/login")
-    String login() {
-        return "pages/login";
     }
 
     @GetMapping("/register")
