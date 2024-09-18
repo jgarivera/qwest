@@ -19,10 +19,12 @@
         </p>
 
         <div class="container is-max-desktop">
-            <div th:if="${param.registered}" class="notification is-success">
+            <div th:if="${registered}" class="notification is-success">
+                <button class="delete"></button>
                 You have successfully registered! You may now log in.
             </div>
-            <div th:if="${param.error}" class="notification is-danger">
+            <div th:if="${error}" class="notification is-danger">
+                <button class="delete"></button>
                 There was an error with your login. Please make sure your username and password are correct.
             </div>
 

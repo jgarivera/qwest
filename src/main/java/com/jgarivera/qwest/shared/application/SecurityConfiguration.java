@@ -25,7 +25,7 @@ class SecurityConfiguration {
 
         http.formLogin(
                 c -> c.loginPage("/login")
-                        .failureUrl("/login?error")
+                        .failureUrl("/login-error")
         );
 
         http.rememberMe(c -> c.key(rememberMeKey)

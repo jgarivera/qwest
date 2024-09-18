@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 class RegistrationPageController {
@@ -26,7 +27,9 @@ class RegistrationPageController {
     }
 
     @PostMapping("/register")
-    String register(@Valid @ModelAttribute("form") RegistrationForm form, BindingResult result) {
+    String register(@Valid @ModelAttribute("form") RegistrationForm form,
+                    BindingResult result,
+                    RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return "pages/register";
         }
@@ -38,6 +41,8 @@ class RegistrationPageController {
                 form.getPassword()
         );
 
-        return "redirect:/login?registered";
+        redirectAttributes.addFlashAttribute("registered", true);
+
+        return "redirect:/login";
     }
 }

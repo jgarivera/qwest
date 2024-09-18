@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(LoginPageController.class)
 @Import(TestSecurityConfiguration.class)
 class LoginPageControllerTest {
+
     @Autowired
     MockMvc mockMvc;
 
@@ -50,7 +51,7 @@ class LoginPageControllerTest {
     void it_fails_to_log_in() throws Exception {
         mockMvc.perform(formLogin().user("nonexistent").password("password"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/login?error"))
+                .andExpect(redirectedUrl("/login-error"))
                 .andExpect(unauthenticated());
     }
 
