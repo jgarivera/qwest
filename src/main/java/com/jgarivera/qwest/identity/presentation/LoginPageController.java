@@ -8,12 +8,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 class LoginPageController {
 
     @GetMapping("/login")
-    String login() {
+    private String login() {
         return "pages/login";
     }
 
     @GetMapping("/login-error")
-    String loginError(RedirectAttributes redirectAttributes) {
+    private String loginError(RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("error", true);
         return "redirect:/login";
     }

@@ -22,12 +22,12 @@ class RegistrationPageController {
     }
 
     @GetMapping("/register")
-    String register(@ModelAttribute("form") RegistrationForm form) {
+    private String register(@ModelAttribute("form") RegistrationForm form) {
         return "pages/register";
     }
 
     @PostMapping("/register")
-    String register(@Valid @ModelAttribute("form") RegistrationForm form,
+    private String register(@Valid @ModelAttribute("form") RegistrationForm form,
                     BindingResult result,
                     RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
