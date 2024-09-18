@@ -1,9 +1,6 @@
 package com.jgarivera.qwest.challenges.presentation;
 
 import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
-import com.jgarivera.qwest.challenges.domain.model.Challenge;
-import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
-import com.jgarivera.qwest.challenges.domain.model.ChallengeVisibility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.AggregateWith;
@@ -14,8 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
-
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -23,7 +18,6 @@ import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -34,39 +28,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@WebMvcTest(PageController.class)
-class RegistrationPageControllerTest {
+@WebMvcTest(ChallengeHostingPageController.class)
+class ChallengeHostingPageControllerTest {
 
     @Autowired
     MockMvc mockMvc;
 
     @MockBean
-    ChallengeRepository repository;
-    @MockBean
     ChallengeCatalogueService catalogueService;
 
-    @Test
-    @WithMockUser
-    void it_gets_challenges_page() throws Exception {
-        when(repository.nextId())
-                .thenCallRealMethod();
-
-        List<Challenge> challenges = List.of(
-                new Challenge(repository.nextId(), "First challenge", ChallengeVisibility.PUBLIC),
-                new Challenge(repository.nextId(), "Second challenge", ChallengeVisibility.PUBLIC)
-        );
-
-        when(catalogueService.getChallenges())
-                .thenReturn(challenges);
-
-        mockMvc.perform(get("/challenges"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("pages/challenges/list"))
-                .andExpectAll(
-                        content().string(containsString("First challenge")),
-                        content().string(containsString("Second challenge"))
-                );
-    }
 
     @Test
     @WithMockUser
