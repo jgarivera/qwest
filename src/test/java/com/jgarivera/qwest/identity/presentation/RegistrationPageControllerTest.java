@@ -1,10 +1,6 @@
 package com.jgarivera.qwest.identity.presentation;
 
 import com.jgarivera.qwest.identity.application.UserService;
-import com.jgarivera.qwest.identity.domain.model.EmailAddress;
-import com.jgarivera.qwest.identity.domain.model.PersonalName;
-import com.jgarivera.qwest.identity.domain.model.User;
-import com.jgarivera.qwest.identity.domain.model.Username;
 import com.jgarivera.qwest.shared.application.TestSecurityConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,13 +14,12 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.nullable;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -47,8 +42,8 @@ class RegistrationPageControllerTest {
 
     @BeforeEach
     void setUp() {
-        when(userService.register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString()))
-                .thenReturn(mock(User.class));
+        doNothing().when(userService)
+                .register(anyString(), nullable(String.class), anyString(), anyString(), anyString(), anyString());
     }
 
     @Test
@@ -79,7 +74,7 @@ class RegistrationPageControllerTest {
                 .andExpect(flash().attribute("registered", true));
 
         verify(userService, times(1))
-                .register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString());
+                .register(anyString(), nullable(String.class), anyString(), anyString(), anyString(), anyString());
     }
 
     @ParameterizedTest
@@ -104,6 +99,6 @@ class RegistrationPageControllerTest {
                 .andExpect(model().hasErrors());
 
         verify(userService, never())
-                .register(any(PersonalName.class), any(EmailAddress.class), any(Username.class), anyString());
+                .register(anyString(), nullable(String.class), anyString(), anyString(), anyString(), anyString());
     }
 }
