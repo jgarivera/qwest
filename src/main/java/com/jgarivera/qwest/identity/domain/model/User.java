@@ -46,7 +46,7 @@ public class User extends BaseAggregateRoot<User, UserId> implements UserDetails
     public static User create(UserId id, PersonalName name, EmailAddress email, Username username, String password) {
         var user = new User(id, name, email, username, password);
 
-        user.registerEvent(new UserRegistered(user));
+        user.registerEvent(new UserRegistered(user.getId()));
 
         return user;
     }
