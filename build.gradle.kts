@@ -21,6 +21,7 @@ repositories {
 }
 
 extra["springModulithVersion"] = "1.2.3"
+extra["jMoleculesVersion"] = "2023.1.4"
 
 dependencies {
     // production
@@ -42,7 +43,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-mail")
 
     implementation("org.springframework.modulith:spring-modulith-starter-core")
-    implementation(platform("org.jmolecules:jmolecules-bom:2023.1.4"))
     implementation("org.jmolecules.integrations:jmolecules-starter-ddd")
     implementation("org.jmolecules:jmolecules-onion-architecture")
 
@@ -64,6 +64,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.modulith:spring-modulith-bom:${property("springModulithVersion")}")
+        mavenBom("org.jmolecules:jmolecules-bom:${property("jMoleculesVersion")}")
     }
 }
 
