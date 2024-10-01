@@ -1,8 +1,12 @@
 package com.jgarivera.qwest.challenges.presentation;
 
 import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
+import com.jgarivera.qwest.identity.domain.model.User;
+import com.jgarivera.qwest.identity.domain.model.UserId;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,12 +32,17 @@ class ChallengeHostingPageController {
     @PostMapping
     private String hostChallenge(@Valid @ModelAttribute("form") ChallengeHostingForm form,
                                  BindingResult result,
-                                 RedirectAttributes redirectAttributes) {
+                                 RedirectAttributes redirectAttributes,
+                                 @AuthenticationPrincipal User user) {
         if (result.hasErrors()) {
             return "pages/challenges/host";
         }
 
-        catalogueService.hostChallenge(form.getTitle(), form.getVisibility(), form.getDescription());
+        UserId userId = user.getId();
+
+        Assert.notNull(userId, "User must have id");
+
+        catalogueService.hostChallenge(user.getId().id(), form.getTitle(), form.getVisibility(), form.getDescription());
 
         redirectAttributes.addFlashAttribute("hosted", true);
 

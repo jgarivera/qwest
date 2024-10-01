@@ -4,6 +4,7 @@ import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
 import com.jgarivera.qwest.challenges.domain.model.Challenge;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeVisibility;
+import com.jgarivera.qwest.challenges.domain.model.HostId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -12,6 +13,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
@@ -37,9 +39,11 @@ class ChallengeListPageControllerTest {
         when(repository.nextId())
                 .thenCallRealMethod();
 
+        var hostId = new HostId(UUID.randomUUID());
+
         List<Challenge> challenges = List.of(
-                new Challenge(repository.nextId(), "First challenge", ChallengeVisibility.PUBLIC),
-                new Challenge(repository.nextId(), "Second challenge", ChallengeVisibility.PUBLIC)
+                new Challenge(repository.nextId(), hostId, "First challenge", ChallengeVisibility.PUBLIC),
+                new Challenge(repository.nextId(), hostId, "Second challenge", ChallengeVisibility.PUBLIC)
         );
 
         when(catalogueService.getChallenges())

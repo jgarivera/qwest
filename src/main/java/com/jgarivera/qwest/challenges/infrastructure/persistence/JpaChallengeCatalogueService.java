@@ -5,8 +5,11 @@ import com.jgarivera.qwest.challenges.domain.model.ChallengeId;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeVisibility;
 import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
+import com.jgarivera.qwest.challenges.domain.model.HostId;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 @Service
 class JpaChallengeCatalogueService implements ChallengeCatalogueService {
@@ -24,10 +27,10 @@ class JpaChallengeCatalogueService implements ChallengeCatalogueService {
 
     @Override
     @Transactional
-    public void hostChallenge(String title, int visibilityId, String description) {
+    public void hostChallenge(UUID hostId, String title, int visibilityId, String description) {
         ChallengeId id = repository.nextId();
         var visibility = ChallengeVisibility.fromId(visibilityId);
-        var challenge = new Challenge(id, title, visibility, description);
+        var challenge = new Challenge(id, new HostId(hostId), title, visibility, description);
 
         repository.save(challenge);
     }
