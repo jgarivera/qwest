@@ -30,7 +30,10 @@ class JpaChallengeCatalogueService implements ChallengeCatalogueService {
     public void hostChallenge(UUID hostId, String title, int visibilityId, String description) {
         ChallengeId id = repository.nextId();
         var visibility = ChallengeVisibility.fromId(visibilityId);
-        var challenge = new Challenge(id, new HostId(hostId), title, visibility, description);
+        var challenge = new Challenge.Builder(id, new HostId(hostId), title)
+                .visibility(visibility)
+                .description(description)
+                .build();
 
         repository.save(challenge);
     }

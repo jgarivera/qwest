@@ -3,7 +3,6 @@ package com.jgarivera.qwest.challenges.presentation;
 import com.jgarivera.qwest.challenges.application.ChallengeCatalogueService;
 import com.jgarivera.qwest.challenges.domain.model.Challenge;
 import com.jgarivera.qwest.challenges.domain.model.ChallengeRepository;
-import com.jgarivera.qwest.challenges.domain.model.ChallengeVisibility;
 import com.jgarivera.qwest.challenges.domain.model.HostId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +41,8 @@ class ChallengeListPageControllerTest {
         var hostId = new HostId(UUID.randomUUID());
 
         List<Challenge> challenges = List.of(
-                new Challenge(repository.nextId(), hostId, "First challenge", ChallengeVisibility.PUBLIC),
-                new Challenge(repository.nextId(), hostId, "Second challenge", ChallengeVisibility.PUBLIC)
+                new Challenge.Builder(repository.nextId(), hostId, "First challenge").build(),
+                new Challenge.Builder(repository.nextId(), hostId, "Second challenge").build()
         );
 
         when(catalogueService.getChallenges())

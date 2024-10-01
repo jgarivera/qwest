@@ -27,13 +27,9 @@ class ChallengeRepositoryTest {
         var challengeId = repository.nextId();
         var hostId = new HostId(UUID.randomUUID());
 
-        var challenge = new Challenge(
-                challengeId,
-                hostId,
-                "Challenge title",
-                ChallengeVisibility.PUBLIC,
-                "Challenge description"
-        );
+        var challenge = new Challenge.Builder(challengeId, hostId, "Challenge title")
+                .description("Challenge description")
+                .build();
 
         repository.save(challenge);
         entityManager.flush();

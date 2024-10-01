@@ -14,24 +14,51 @@ public class Challenge extends BaseAggregateRoot<Challenge, ChallengeId> {
     private String description;
     private ChallengeVisibility visibility;
 
+    public static class Builder {
+
+        private final ChallengeId id;
+        private final HostId hostId;
+        private final String title;
+
+        private ChallengeVisibility visibility;
+        private String description;
+
+        public Builder(ChallengeId id, HostId hostId, String title) {
+            this.id = id;
+            this.hostId = hostId;
+            this.title = title;
+
+            visibility = ChallengeVisibility.PUBLIC;
+        }
+
+        public Builder visibility(ChallengeVisibility visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Challenge build() {
+            return new Challenge(this);
+        }
+    }
+
     /**
      * As required by JPA.
      */
     protected Challenge() {
     }
 
-    public Challenge(ChallengeId id, HostId hostId, String title, ChallengeVisibility visibility) {
-        super(id);
+    protected Challenge(Builder builder) {
+        super(builder.id);
 
-        setHostId(hostId);
-        setTitle(title);
-        setVisibility(visibility);
-    }
-
-    public Challenge(ChallengeId id, HostId hostId, String title, ChallengeVisibility visibility, String description) {
-        this(id, hostId, title, visibility);
-
-        setDescription(description);
+        setHostId(builder.hostId);
+        setTitle(builder.title);
+        setVisibility(builder.visibility);
+        setDescription(builder.description);
     }
 
     public HostId getHostId() {
