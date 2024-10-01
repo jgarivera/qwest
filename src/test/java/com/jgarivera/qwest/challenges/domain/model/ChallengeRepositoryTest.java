@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 
+import java.util.UUID;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -22,9 +24,12 @@ class ChallengeRepositoryTest {
 
     @Test
     void it_creates_challenge() {
-        var id = repository.nextId();
+        var challengeId = repository.nextId();
+        var hostId = new HostId(UUID.randomUUID());
+
         var challenge = new Challenge(
-                id,
+                challengeId,
+                hostId,
                 "Challenge title",
                 ChallengeVisibility.PUBLIC,
                 "Challenge description"
@@ -33,7 +38,7 @@ class ChallengeRepositoryTest {
         repository.save(challenge);
         entityManager.flush();
 
-        Challenge savedChallenge = repository.findById(id).orElseThrow();
+        Challenge savedChallenge = repository.findById(challengeId).orElseThrow();
 
         assertThat(savedChallenge).isEqualTo(challenge);
         assertThat(savedChallenge.getTitle()).isEqualTo("Challenge title");
